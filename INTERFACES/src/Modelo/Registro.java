@@ -1,13 +1,20 @@
 package Modelo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 //Clase Registro que hereda de Usuario
 public class Registro extends Usuario {
+
+    // Lista para almacenar los usuarios registrados
+    private List<Usuario> listaUsuarios;
 
     //Constructor de la clase Registro
     public Registro(String tipoIdentificacion, String documentoIdenficacion, String nombre, String apellido,
             String correo, String direccionResidencia, String ciudadResidencia, String telefono, String contrasena) {
         super(tipoIdentificacion, documentoIdenficacion, nombre, apellido, correo, direccionResidencia, ciudadResidencia,
                 telefono, contrasena);
+        listaUsuarios = new ArrayList<>();
     }
 
     //Método para verificar si el usuario ya existe
@@ -41,4 +48,14 @@ public class Registro extends Usuario {
                 }
             }
 
+     // Método para agregar un usuario a la lista
+    public void agregarUsuario(Usuario usuario) {
+        listaUsuarios.add(usuario);
     }
+
+    // Método para obtener la lista de usuarios
+    public List<Usuario> getListaUsuarios() {
+        return listaUsuarios;
+    }
+
+}
